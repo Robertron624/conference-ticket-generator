@@ -16,5 +16,68 @@ $gradient-text: linear-gradient(90deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
 
 
 // Texts
-
 $text-labels: 2.5rem;
+
+
+// Flexbox mixin
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Button mixin
+
+@mixin button($color: $neutral-0, $bg: $orange-500, $bg-hover: transparent, $border: none, $radius: 0.5rem) {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: $color;
+  background-color: $bg;
+  border: $border;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $bg-hover;
+    }
+}
+
+// Input mixin
+
+@mixin input($color: $neutral-900, $bg: $neutral-300, $border: none, $radius: 0.5rem) {
+  font: inherit;
+  color: $color;
+  background-color: $bg;
+  border: $border;
+  border-radius: $radius;
+  padding: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+// Text mixin
+
+@mixin text($color: $neutral-900, $size: 1rem, $weight: 400) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+// Heading mixin
+
+@mixin heading($color: $neutral-900, $size: 2.5rem, $weight: 700) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+// Container mixin
+
+@mixin container($width: 100%, $padding: 2rem) {
+  width: $width;
+  padding: $padding;
+  margin: 0 auto;
+}
