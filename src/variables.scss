@@ -60,24 +60,19 @@ $text-labels: 2.5rem;
 
 // Text mixin
 
-@mixin text($color: $neutral-900, $size: 1rem, $weight: 400) {
+@mixin text($color: inherit, $size: 1rem, $weight: 400 , $line-height: 1.5, $align: left) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
-}
-
-// Heading mixin
-
-@mixin heading($color: $neutral-900, $size: 2.5rem, $weight: 700) {
-  font-size: $size;
-  font-weight: $weight;
-  color: $color;
+    line-height: $line-height;
+    text-align: $align;
 }
 
 // Container mixin
 
-@mixin container($width: 100%, $padding: 2rem) {
+@mixin container($width: 100%, $padding: 0, $max-width: $desktop-width, $margin: 0 auto) {
   width: $width;
   padding: $padding;
-  margin: 0 auto;
+  margin: $margin;
+  max-width: $max-width;
 }

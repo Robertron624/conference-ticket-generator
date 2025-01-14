@@ -6,6 +6,10 @@
 
 <main>
   <Header />
+  <div class="intro-text">
+    <h1 class="heading">Your Journey to Coding Conf 2025 Starts Here!</h1>
+    <p class="sub-heading">Secure your spot at next year's biggest coding conference.</p>
+  </div>
 </main>
 
 <style lang="scss">
@@ -20,5 +24,19 @@
     background-repeat: no-repeat;
     background-position: -7% -2rem;
     background-size: 7rem;
+
+    .intro-text {
+      margin-top: 1rem;
+      h1 {
+        @include vars.text($size: 1.5rem, $weight: 700, $align: center);
+        @include vars.container($max-width: 20rem);
+      }
+  
+      .sub-heading {
+        @include vars.text($color: vars.$neutral-300,$size: 1rem, $weight: 400, $align: center);
+        @include vars.container($max-width: 18rem, $margin: 1.5rem auto 0);
+      }
+    }
+
   }
 </style>

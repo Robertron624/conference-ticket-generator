@@ -39,8 +39,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #000;
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -63,7 +61,7 @@ body {
   height: 100vh;
 
   background-image: url("/images/pattern-lines.svg");
-  background-size: 180% 30rem;
+  background-size: 70rem 50rem;
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -132,4 +130,5 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  color: vars.$neutral-0;
 }
