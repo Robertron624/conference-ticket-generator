@@ -96,6 +96,7 @@ $text-labels: 2.5rem;
 @mixin text(
   $color: inherit,
   $size: 1rem,
+  $font-size-desktop: 1.5rem,
   $weight: 400,
   $line-height: 1.5,
   $align: left,
@@ -107,6 +108,10 @@ $text-labels: 2.5rem;
   line-height: $line-height;
   text-align: $align;
   margin: $margin;
+
+  @include desktop {
+    font-size: $font-size-desktop;
+  }
 }
 
 // Container mixin
@@ -118,7 +123,8 @@ $text-labels: 2.5rem;
   $max-width: $desktop-width,
   $margin: 0 auto,
   $border: none,
-  $radius: 0
+  $radius: 0,
+  $bg: none,
 ) {
   width: $width;
   padding: $padding;
@@ -127,6 +133,7 @@ $text-labels: 2.5rem;
   border: $border;
   height: $height;
   border-radius: $radius;
+  background-color: $bg;
 }
 
 // Grid mixin

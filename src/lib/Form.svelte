@@ -94,18 +94,28 @@
           aria-label="Selecciona una imagen"
           role="button"
           tabindex="0"
+          class:uploaded-image={formData.avatar && !errors.avatar}
         >
-          <div class="upload-image-container">
-            <img
-              src="/images/icon-upload.svg"
-              alt="a cloud with an arrow pointing up"
-            />
+          <div class="upload-image-container"
+            class:uploaded-image-container={formData.avatar && !errors.avatar}
+          >
+            {#if formData.avatar && !errors.avatar}
+                <img
+                    id="uploaded-image"
+                    src={URL.createObjectURL(formData.avatar)}
+                    alt="Uploaded avatar"
+                />
+            {:else}
+                <img
+                    id="placeholder-image"
+                    src="/images/icon-upload.svg"
+                    alt="a cloud with an arrow pointing up"
+                />
+            {/if}
           </div>
-          <p>
-            {formData.avatar
-              ? `File: ${formData.avatar.name}`
-              : "Drag and drop or click to upload"}
-          </p>
+          {#if !formData.avatar || errors.avatar}
+            <p>Drag and drop or click to upload</p>
+          {/if}
           <input
             id="avatar-input"
             type="file"
@@ -117,6 +127,24 @@
             }}
             hidden
           />
+        {#if formData.avatar && !errors.avatar}
+            <div class="avatar-mod-buttons">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    on:click={() => (formData.avatar = null)}
+                >
+                    Remove Image
+                </button>
+                <button
+                        type="button"
+                        class="btn btn-secondary"
+                        on:click={() => document.getElementById("avatar-input")?.click()}
+                >
+                        Change Image
+                </button>
+            </div>
+        {/if}
         </div>
         {#if !errors.avatar}
           <div class="avatar-info">
@@ -203,6 +231,28 @@
             @include vars.text($size: 0.65rem, $color: vars.$neutral-500);
           }
         }
+
+        .avatar-mod-buttons {
+            @include vars.flex($justify: flex-start, $align: center, $gap: 0.5rem);
+
+            button {
+
+                &:first-of-type {
+                    text-decoration: underline;
+                }
+
+                @include vars.button(
+                    $bg: vars.$neutral-700,
+                    $bg-hover: vars.$neutral-300,
+                    $color: vars.$neutral-0,
+                    $border: 1px solid vars.$neutral-700,
+                    $radius: .25rem,
+                    $padding: 0.25rem .35rem,
+                    $font-size: 0.8rem,
+                    $font-weight: 400,
+                );
+            }
+        }
       }
 
       .form-label {
@@ -219,13 +269,14 @@
           $font-size: 1rem,
           $color: vars.$neutral-0,
           $border: 1px solid vars.$neutral-300,
-          $bg: vars.$neutral-900,
+          $bg: transparent,
           $width: 100%,
           $placeholder-color: vars.$neutral-300
         );
       }
 
       .dropzone {
+        backdrop-filter: blur(1px);
         @include vars.flex(column, center, center);
         @include vars.text(
           $size: 1rem,
@@ -233,22 +284,30 @@
           $align: center
         );
         @include vars.container(
-          $padding: 0.5rem 1rem,
+          $padding: 1.5rem 1rem,
           $margin: 0.5rem auto 0,
-          $height: 6.5rem,
+          $height: auto,
           $border: 2px dashed vars.$neutral-500,
           $radius: $inputs-border-radius
         );
         cursor: pointer;
 
         .upload-image-container {
-          width: 3rem;
-          height: 3rem;
-          @include vars.flex(center, center);
-          margin-bottom: 0.5rem;
-          border: 1px solid vars.$neutral-500;
-          border-radius: 0.8rem;
-          background-color: vars.$neutral-700;
+          @include vars.flex($justify: center, $align: center);
+          @include vars.container(
+            $radius: 0.8rem,
+            $width: 3rem,
+            $height: 3rem,
+            $bg: vars.$neutral-700,
+            $border: 1.5px solid vars.$neutral-500,
+            $margin: 0 0 0.5rem
+          );
+
+          &.uploaded-image-container {
+            img {
+                border-radius: 0.8rem;
+            }
+          }
 
           img {
             object-fit: contain;
