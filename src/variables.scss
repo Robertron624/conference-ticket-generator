@@ -14,65 +14,154 @@ $orange-700: hsl(7, 71%, 60%);
 // Gradient
 $gradient-text: linear-gradient(90deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
 
-
 // Texts
 $text-labels: 2.5rem;
 
-
 // Flexbox mixin
 
-@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
 }
 
 // Button mixin
 
-@mixin button($color: $neutral-0, $bg: $orange-500, $bg-hover: transparent, $border: none, $radius: 0.5rem) {
+@mixin button(
+  $color: $neutral-0,
+  $color-hover: $neutral-0,
+  $bg: $orange-500,
+  $bg-hover: transparent,
+  $border: none,
+  $radius: 0.5rem,
+  $padding: 1rem,
+  $font-size: 1rem,
+  $font-size-desktop: 1.5rem,
+  $font-weight: 400,
+  $margin: 0,
+  $width: auto
+) {
   font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
+  font-size: $font-size;
+  font-weight: $font-weight;
   color: $color;
   background-color: $bg;
   border: $border;
   border-radius: $radius;
-  cursor: pointer;
+  padding: $padding;
   transition: background-color 0.3s ease;
+  margin: $margin;
+  width: $width;
 
-    &:hover {
-        background-color: $bg-hover;
-    }
+  &:hover {
+    background-color: $bg-hover;
+  }
+
+  @include desktop {
+    font-size: $font-size-desktop;
+  }
 }
 
 // Input mixin
 
-@mixin input($color: $neutral-900, $bg: $neutral-300, $border: none, $radius: 0.5rem) {
+@mixin input(
+  $color: $neutral-900,
+  $bg: $neutral-300,
+  $border: none,
+  $radius: 0.5rem,
+  $padding: 1rem,
+  $font-size: 1rem,
+  $width: 100%,
+  $placeholder-color: $neutral-0
+) {
   font: inherit;
   color: $color;
   background-color: $bg;
   border: $border;
   border-radius: $radius;
-  padding: 1rem;
-  transition: background-color 0.3s ease;
+  padding: $padding;
+  font-size: $font-size;
+  width: $width;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
 }
 
 // Text mixin
 
-@mixin text($color: inherit, $size: 1rem, $weight: 400 , $line-height: 1.5, $align: left) {
+@mixin text(
+  $color: inherit,
+  $size: 1rem,
+  $weight: 400,
+  $line-height: 1.5,
+  $align: left,
+  $margin: 0
+) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
-    line-height: $line-height;
-    text-align: $align;
+  line-height: $line-height;
+  text-align: $align;
+  margin: $margin;
 }
 
 // Container mixin
 
-@mixin container($width: 100%, $padding: 0, $max-width: $desktop-width, $margin: 0 auto) {
+@mixin container(
+  $width: 100%,
+  $height: auto,
+  $padding: 0,
+  $max-width: $desktop-width,
+  $margin: 0 auto,
+  $border: none,
+  $radius: 0
+) {
   width: $width;
   padding: $padding;
   margin: $margin;
   max-width: $max-width;
+  border: $border;
+  height: $height;
+  border-radius: $radius;
+}
+
+// Grid mixin
+
+@mixin grid(
+  $columns: 1,
+  $gap: 1rem,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: wrap
+) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Responsive mixins
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
 }

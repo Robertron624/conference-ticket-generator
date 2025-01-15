@@ -1,7 +1,6 @@
 <script lang="ts">
-  console.log("Hello Vite + Svelte!");
-
   import Header from "./lib/Header.svelte";
+  import Form from "./lib/Form.svelte";
 </script>
 
 <main>
@@ -10,6 +9,7 @@
     <h1 class="heading">Your Journey to Coding Conf 2025 Starts Here!</h1>
     <p class="sub-heading">Secure your spot at next year's biggest coding conference.</p>
   </div>
+  <Form />
 </main>
 
 <style lang="scss">
