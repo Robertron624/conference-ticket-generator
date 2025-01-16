@@ -17,6 +17,26 @@ $gradient-text: linear-gradient(90deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
 // Texts
 $text-labels: 2.5rem;
 
+// Responsive mixins
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 // Flexbox mixin
 
 @mixin flex($direction: row, $justify: flex-start, $align: stretch, $items-gap: 0, $wrap: nowrap) {
@@ -44,6 +64,13 @@ $text-labels: 2.5rem;
   $m: 0,
   $w: auto
 ) {
+  
+  & {
+    @include desktop {
+      font-size: $size-desktop;
+    }
+  }
+
   font-family: inherit;
   font-size: $size;
   font-weight: $weight;
@@ -60,9 +87,6 @@ $text-labels: 2.5rem;
     background-color: $bg-hover;
   }
 
-  @include desktop {
-    font-size: $size-desktop;
-  }
 }
 
 // Input mixin
@@ -78,6 +102,12 @@ $text-labels: 2.5rem;
   $w: 100%,
   $placeholder-color: $neutral-0
 ) {
+  & {
+    @include desktop {
+      font-size: $size-desktop;
+    }
+  }
+
   font: inherit;
   color: $text-color;
   background-color: $bg;
@@ -90,11 +120,6 @@ $text-labels: 2.5rem;
   &::placeholder {
     color: $placeholder-color;
   }
-
-  @include desktop {
-    font-size: $size-desktop;
-  }
-
 }
 
 // Text mixin
@@ -104,19 +129,21 @@ $text-labels: 2.5rem;
   $size: 1rem,
   $size-desktop: 1.5rem,
   $weight: 400,
-  $line-height: 1.5,
   $align: left,
-  $m: 0
+  $m: 0,
+  $l-height: 1.5
 ) {
   font-size: $size;
   font-weight: $weight;
   color: $text-color;
-  line-height: $line-height;
   text-align: $align;
   margin: $m;
+  line-height: $l-height;
 
-  @include desktop {
-    font-size: $size-desktop;
+  & {
+    @include desktop {
+      font-size: $size-desktop;
+    }
   }
 }
 
@@ -132,49 +159,33 @@ $text-labels: 2.5rem;
   $radius: 0,
   $bg: none,
 ) {
-  width: $w;
-  padding: $p;
-  margin: $m;
-  max-width: $max-w;
-  border: $br;
-  height: $h;
-  border-radius: $radius;
-  background-color: $bg;
+  & {
+    width: $w;
+    padding: $p;
+    margin: $m;
+    max-width: $max-w;
+    border: $br;
+    height: $h;
+    border-radius: $radius;
+    background-color: $bg;
+  }
 }
 
 // Grid mixin
 
 @mixin grid(
   $columns: 1,
-  $gap: 1rem,
+  $items-gap: 1rem,
   $justify: flex-start,
   $align: stretch,
   $wrap: wrap
 ) {
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
-  gap: $gap;
+  gap: $items-gap;
   justify-content: $justify;
   align-items: $align;
   flex-wrap: $wrap;
 }
 
-// Responsive mixins
 
-@mixin mobile {
-  @media (max-width: 767px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: 1024px) {
-    @content;
-  }
-}

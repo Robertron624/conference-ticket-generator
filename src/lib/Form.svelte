@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import ErrorMessage from "./FormComponents/ErrorMessage.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
 
   // initial errors state
   let errors = {
@@ -58,6 +60,7 @@
     event.preventDefault();
     if (validateForm()) {
       console.log("Form successfully submitted :", formData);
+      dispatch("submit", formData);
     }
   };
 
@@ -157,6 +160,7 @@
       <div class="form-group">
         <label for="name" class="form-label">Full Name</label>
         <input
+          class:input-error={errors.fullName}
           id="name"
           type="text"
           placeholder="John Doe"
@@ -170,6 +174,7 @@
       <div class="form-group">
         <label for="email" class="form-label">Email Address</label>
         <input
+          class:input-error={errors.email}
           id="email"
           type="email"
           placeholder="example@email.com"
@@ -186,6 +191,7 @@
             GitHub Username
         </label>
         <input
+          class:input-error={errors.githubUsername}
           id="github"
           type="text"
           placeholder="@yourusername"
@@ -234,7 +240,6 @@
             @include vars.flex($justify: flex-start, $align: center, $items-gap: 0.5rem);
 
             button {
-
                 &:first-of-type {
                     text-decoration: underline;
                 }
@@ -261,6 +266,11 @@
 
       input {
         margin-top: 0.5rem;
+
+        &.input-error {
+          border-color: vars.$orange-700;
+        }
+
         @include vars.input(
           $p: 0.5rem,
           $radius: $inputs-border-radius,

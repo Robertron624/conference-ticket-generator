@@ -1,19 +1,36 @@
 <script lang="ts">
   import Header from "./lib/Header.svelte";
   import Form from "./lib/Form.svelte";
+  import Ticket from "./lib/Ticket.svelte";
+  import type { UserData } from "./types";
+
+  let isSubmitted = true;
+  let ticketData = {} as UserData;
+
+  const handleFormSubmit = (data: any) => {
+    isSubmitted = true;
+    ticketData = data;
+  };
 </script>
 
 <main>
   <Header />
-  <div class="intro-text">
-    <h1 class="heading">Your Journey to Coding Conf 2025 Starts Here!</h1>
-    <p class="sub-heading">Secure your spot at next year's biggest coding conference.</p>
-  </div>
-  <Form />
+  {#if isSubmitted}
+    <Ticket {ticketData} />
+  {:else}
+    <div class="intro-text">
+      <h1 class="heading">Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p class="sub-heading">
+        Secure your spot at next year's biggest coding conference.
+      </p>
+    </div>
+    <Form 
+      on:submit={handleFormSubmit}
+    />
+  {/if}
 </main>
 
 <style lang="scss">
-
   @use "./variables" as vars;
 
   main {
@@ -28,15 +45,28 @@
     .intro-text {
       margin-top: 1rem;
       h1 {
-        @include vars.text($size: 1.5rem, $weight: 700, $align: center);
-        @include vars.container($max-w: 20rem);
+        & {
+          @include vars.text($size: 1.5rem, $weight: 700, $align: center);
+          & {
+            @include vars.container($max-w: 20rem);
+          }
+        }
       }
-  
+
       .sub-heading {
-        @include vars.text($text-color: vars.$neutral-300,$size: 1rem, $weight: 400, $align: center);
-        @include vars.container($max-w: 18rem, $m: 1.5rem auto 0);
+        & {
+          @include vars.text(
+            $text-color: vars.$neutral-300,
+            $size: 1rem,
+            $weight: 400,
+            $align: center
+          );
+
+          & {
+            @include vars.container($max-w: 18rem, $m: 1.5rem auto 0);
+          }
+        }
       }
     }
-
   }
 </style>
