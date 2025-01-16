@@ -53,9 +53,6 @@ body {
 }
 
 #app {
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem; */
   text-align: center;
   width: 100%;
   height: 100vh;
@@ -64,6 +61,7 @@ body {
   background-size: 70rem 50rem;
   background-repeat: no-repeat;
   background-position: top center;
+  background-color: transparent;
 }
 
 /* CSS reset */
@@ -126,9 +124,24 @@ body {
   font-size: 1rem;
   font-weight: 400;
   color: vars.$neutral-900;
-  background-image: url(/images/background-mobile.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: vars.$neutral-0;
+  background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-mobile.png);
+  background-size: 20rem 20rem, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom -32% left,center;
+
+  // background-image: url(/images/background-mobile.png);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // color: vars.$neutral-0;
+
+  @include vars.tablet {
+    background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-tablet.png);
+    // background-image: url(/images/background-tablet.png)
+  }
+
+  @include vars.desktop {
+    background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-desktop.png);
+    // background-image: url(/images/background-desktop.png)
+  }
 }

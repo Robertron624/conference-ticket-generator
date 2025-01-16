@@ -214,7 +214,7 @@
   #form-container {
     @include vars.container(
       $max-w: 20rem,
-      $p: 0,
+      $p: 0 0 4rem,
       $m: 2rem auto 0
     );
     @include vars.flex(column, start, center);

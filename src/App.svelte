@@ -44,11 +44,11 @@
 
     .intro-text {
       margin-top: 1rem;
-      h1 {
+      .heading {
         & {
-          @include vars.text($size: 1.5rem, $weight: 700, $align: center);
+          @include vars.text($size: 1.5rem, $weight: 700, $align: center, $size-desktop: 2.5rem, $text-color: vars.$neutral-0);
           & {
-            @include vars.container($max-w: 20rem);
+            @include vars.container($max-w: 20rem, $max-w-desktop: 40rem);
           }
         }
       }

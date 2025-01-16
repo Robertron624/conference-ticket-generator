@@ -1,3 +1,4 @@
+$tablet-width: 640px;
 $desktop-width: 1440px;
 
 // Neutral Colors
@@ -154,6 +155,7 @@ $text-labels: 2.5rem;
   $h: auto,
   $p: 0,
   $max-w: $desktop-width,
+  $max-w-desktop: $desktop-width,
   $m: 0 auto,
   $br: none,
   $radius: 0,
@@ -168,6 +170,12 @@ $text-labels: 2.5rem;
     height: $h;
     border-radius: $radius;
     background-color: $bg;
+  }
+
+  @include desktop {
+    & {
+      max-width: $max-w-desktop;
+    }
   }
 }
 
