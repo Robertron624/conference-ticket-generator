@@ -21,7 +21,6 @@
     errors = { avatar: "", fullName: "", email: "", githubUsername: "" };
     let isValid = true;
 
-    // Validación del avatar
     if (!formData.avatar) {
       errors.avatar = "The avatar is required.";
       isValid = false;
@@ -33,13 +32,11 @@
       isValid = false;
     }
 
-    // Validación del nombre
     if (!formData.fullName.trim()) {
       errors.fullName = "The full name is required.";
       isValid = false;
     }
 
-    // Validación del email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       errors.email = "An email address is required.";
@@ -49,7 +46,6 @@
       isValid = false;
     }
 
-    // Validación del usuario de GitHub
     if (!formData.githubUsername.trim()) {
       errors.githubUsername = "The GitHub username is required.";
       isValid = false;
@@ -91,7 +87,7 @@
               document.getElementById("avatar-input")?.click();
             }
           }}
-          aria-label="Selecciona una imagen"
+          aria-label="Pick an avatar"
           role="button"
           tabindex="0"
           class:uploaded-image={formData.avatar && !errors.avatar}
@@ -186,7 +182,9 @@
       </div>
 
       <div class="form-group">
-        <label for="github" class="form-label">Usuario de GitHub</label>
+        <label for="github" class="form-label">
+            GitHub Username
+        </label>
         <input
           id="github"
           type="text"
@@ -210,14 +208,14 @@
 
   #form-container {
     @include vars.container(
-      $max-width: 20rem,
-      $padding: 0,
-      $margin: 2rem auto 0
+      $max-w: 20rem,
+      $p: 0,
+      $m: 2rem auto 0
     );
     @include vars.flex(column, start, center);
 
     .form-groups {
-      @include vars.flex($direction: column, $gap: 1.5rem);
+      @include vars.flex($direction: column, $items-gap: 1.5rem);
 
       .form-group {
         .avatar-info {
@@ -225,15 +223,15 @@
           @include vars.flex(
             $justify: flex-start,
             $align: center,
-            $gap: 0.5rem
+            $items-gap: 0.5rem
           );
           small {
-            @include vars.text($size: 0.65rem, $color: vars.$neutral-500);
+            @include vars.text($size: 0.65rem, $text-color: vars.$neutral-500);
           }
         }
 
         .avatar-mod-buttons {
-            @include vars.flex($justify: flex-start, $align: center, $gap: 0.5rem);
+            @include vars.flex($justify: flex-start, $align: center, $items-gap: 0.5rem);
 
             button {
 
@@ -244,12 +242,12 @@
                 @include vars.button(
                     $bg: vars.$neutral-700,
                     $bg-hover: vars.$neutral-300,
-                    $color: vars.$neutral-0,
-                    $border: 1px solid vars.$neutral-700,
+                    $text-color: vars.$neutral-0,
+                    $br: 1px solid vars.$neutral-700,
                     $radius: .25rem,
-                    $padding: 0.25rem .35rem,
-                    $font-size: 0.8rem,
-                    $font-weight: 400,
+                    $p: 0.25rem .35rem,
+                    $size: 0.8rem,
+                    $weight: 400,
                 );
             }
         }
@@ -264,13 +262,13 @@
       input {
         margin-top: 0.5rem;
         @include vars.input(
-          $padding: 0.5rem,
+          $p: 0.5rem,
           $radius: $inputs-border-radius,
-          $font-size: 1rem,
-          $color: vars.$neutral-0,
-          $border: 1px solid vars.$neutral-300,
+          $size: 1rem,
+          $text-color: vars.$neutral-0,
+          $br: 1px solid vars.$neutral-300,
           $bg: transparent,
-          $width: 100%,
+          $w: 100%,
           $placeholder-color: vars.$neutral-300
         );
       }
@@ -280,14 +278,14 @@
         @include vars.flex(column, center, center);
         @include vars.text(
           $size: 1rem,
-          $color: vars.$neutral-300,
+          $text-color: vars.$neutral-300,
           $align: center
         );
         @include vars.container(
-          $padding: 1.5rem 1rem,
-          $margin: 0.5rem auto 0,
-          $height: auto,
-          $border: 2px dashed vars.$neutral-500,
+          $p: 1.5rem 1rem,
+          $m: 0.5rem auto 0,
+          $h: auto,
+          $br: 2px dashed vars.$neutral-500,
           $radius: $inputs-border-radius
         );
         cursor: pointer;
@@ -296,11 +294,11 @@
           @include vars.flex($justify: center, $align: center);
           @include vars.container(
             $radius: 0.8rem,
-            $width: 3rem,
-            $height: 3rem,
+            $w: 3rem,
+            $h: 3rem,
             $bg: vars.$neutral-700,
-            $border: 1.5px solid vars.$neutral-500,
-            $margin: 0 0 0.5rem
+            $br: 1.5px solid vars.$neutral-500,
+            $m: 0 0 0.5rem
           );
 
           &.uploaded-image-container {
@@ -324,15 +322,15 @@
       @include vars.button(
         $bg: vars.$orange-700,
         $bg-hover: vars.$orange-500,
-        $color: vars.$neutral-900,
-        $border: 1px solid vars.$neutral-700,
+        $text-color: vars.$neutral-900,
+        $br: 1px solid vars.$neutral-700,
         $radius: $inputs-border-radius,
-        $padding: 0.5rem,
-        $font-size: 1.2rem,
-        $font-size-desktop: 1.5rem,
-        $font-weight: 700,
-        $width: 100%,
-        $margin: 1rem 0 0,
+        $p: 0.5rem,
+        $size: 1.2rem,
+        $size-desktop: 1.5rem,
+        $weight: 700,
+        $w: 100%,
+        $m: 1rem 0 0,
       );
     }
   }

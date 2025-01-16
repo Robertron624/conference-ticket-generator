@@ -19,119 +19,125 @@ $text-labels: 2.5rem;
 
 // Flexbox mixin
 
-@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $items-gap: 0, $wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
-  gap: $gap;
+  gap: $items-gap;
   flex-wrap: $wrap;
 }
 
 // Button mixin
 
 @mixin button(
-  $color: $neutral-0,
+  $text-color: $neutral-0,
   $color-hover: $neutral-0,
   $bg: $orange-500,
   $bg-hover: transparent,
-  $border: none,
+  $br: none,
   $radius: 0.5rem,
-  $padding: 1rem,
-  $font-size: 1rem,
-  $font-size-desktop: 1.5rem,
-  $font-weight: 400,
-  $margin: 0,
-  $width: auto
+  $p: 1rem,
+  $size: 1rem,
+  $size-desktop: 1.5rem,
+  $weight: 400,
+  $m: 0,
+  $w: auto
 ) {
   font-family: inherit;
-  font-size: $font-size;
-  font-weight: $font-weight;
-  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  color: $text-color;
   background-color: $bg;
-  border: $border;
+  border: $br;
   border-radius: $radius;
-  padding: $padding;
+  padding: $p;
   transition: background-color 0.3s ease;
-  margin: $margin;
-  width: $width;
+  margin: $m;
+  width: $w;
 
   &:hover {
     background-color: $bg-hover;
   }
 
   @include desktop {
-    font-size: $font-size-desktop;
+    font-size: $size-desktop;
   }
 }
 
 // Input mixin
 
 @mixin input(
-  $color: $neutral-900,
+  $text-color: $neutral-900,
   $bg: $neutral-300,
-  $border: none,
+  $br: none,
   $radius: 0.5rem,
-  $padding: 1rem,
-  $font-size: 1rem,
-  $width: 100%,
+  $p: 1rem,
+  $size: 1rem,
+  $size-desktop: 1.5rem,
+  $w: 100%,
   $placeholder-color: $neutral-0
 ) {
   font: inherit;
-  color: $color;
+  color: $text-color;
   background-color: $bg;
-  border: $border;
+  border: $br;
   border-radius: $radius;
-  padding: $padding;
-  font-size: $font-size;
-  width: $width;
+  padding: $p;
+  font-size: $size;
+  width: $w;
 
   &::placeholder {
     color: $placeholder-color;
   }
+
+  @include desktop {
+    font-size: $size-desktop;
+  }
+
 }
 
 // Text mixin
 
 @mixin text(
-  $color: inherit,
+  $text-color: inherit,
   $size: 1rem,
-  $font-size-desktop: 1.5rem,
+  $size-desktop: 1.5rem,
   $weight: 400,
   $line-height: 1.5,
   $align: left,
-  $margin: 0
+  $m: 0
 ) {
   font-size: $size;
   font-weight: $weight;
-  color: $color;
+  color: $text-color;
   line-height: $line-height;
   text-align: $align;
-  margin: $margin;
+  margin: $m;
 
   @include desktop {
-    font-size: $font-size-desktop;
+    font-size: $size-desktop;
   }
 }
 
 // Container mixin
 
 @mixin container(
-  $width: 100%,
-  $height: auto,
-  $padding: 0,
-  $max-width: $desktop-width,
-  $margin: 0 auto,
-  $border: none,
+  $w: 100%,
+  $h: auto,
+  $p: 0,
+  $max-w: $desktop-width,
+  $m: 0 auto,
+  $br: none,
   $radius: 0,
   $bg: none,
 ) {
-  width: $width;
-  padding: $padding;
-  margin: $margin;
-  max-width: $max-width;
-  border: $border;
-  height: $height;
+  width: $w;
+  padding: $p;
+  margin: $m;
+  max-width: $max-w;
+  border: $br;
+  height: $h;
   border-radius: $radius;
   background-color: $bg;
 }

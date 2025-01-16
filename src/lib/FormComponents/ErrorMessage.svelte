@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let message: string; // Propiedad que recibe el texto del error
+    export let message: string;
   </script>
   
   <div class="error">
@@ -32,8 +32,8 @@
     @use "../../variables" as vars;
 
     .error {
-        @include vars.flex($justify: flex-start, $align: center, $gap: 0.5rem);
-        @include vars.text($size: 0.65rem, $color: vars.$orange-700, $margin: 0.5rem 0 0);
+        @include vars.flex($justify: flex-start, $align: center, $items-gap: 0.5rem);
+        @include vars.text($size: 0.65rem, $text-color: vars.$orange-700, $m: 0.5rem 0 0);
     }
   
     svg {
