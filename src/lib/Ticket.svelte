@@ -7,10 +7,10 @@
   <section id="ticket-wrapper">
     <div class="congrats-text">
       <h2>
-        Congrats, <span class="full-name">Robert Ramirez{ticketData.fullName}!</span> Your ticket is ready.
+        Congrats, <span class="full-name">{ticketData.fullName}!</span> Your ticket is ready.
       </h2>
       <p class="email-sent">
-        We've emailed your ticket to <strong>robert@MediaList.com{ticketData.email}</strong> and will send update sin the run up to the event.
+        We've emailed your ticket to <strong>{ticketData.email}</strong> and will send update sin the run up to the event.
       </p>
     </div>
     <div id="ticket">
@@ -29,13 +29,14 @@
             </div>
           </div>
           <div class="user">
-            <img src="/images/image-avatar.jpg" alt="Avatar">
+            <img src={URL.createObjectURL(ticketData.avatar)} alt="Avatar" />
+            <!-- <img src="/images/image-avatar.jpg" alt="Avatar"> -->
             <div class="name-github">
-              <p class="full-name">Robert Ramirez{ticketData.fullName}</p>
+              <p class="full-name">{ticketData.fullName}</p>
               <div class="github-username">
                 <img src="/images/icon-github.svg" alt="Github logo">
                 <p>
-                  @robertramirez{ticketData.githubUsername}
+                  {ticketData.githubUsername}
                 </p>
               </div>
             </div>
@@ -47,7 +48,7 @@
           </p>
         </div>
       </div>
-      <!-- <img src={URL.createObjectURL(ticketData.avatar)} alt="Avatar" /> -->
+      
     </div>
   </section>
   

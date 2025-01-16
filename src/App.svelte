@@ -4,12 +4,12 @@
   import Ticket from "./lib/Ticket.svelte";
   import type { UserData } from "./types";
 
-  let isSubmitted = true;
+  let isSubmitted = false;
   let ticketData = {} as UserData;
 
   const handleFormSubmit = (data: any) => {
     isSubmitted = true;
-    ticketData = data;
+    ticketData = data.detail;
   };
 </script>
 

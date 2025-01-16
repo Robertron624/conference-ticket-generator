@@ -59,7 +59,6 @@
   const handleSubmit = (event: Event) => {
     event.preventDefault();
     if (validateForm()) {
-      console.log("Form successfully submitted :", formData);
       dispatch("submit", formData);
     }
   };
