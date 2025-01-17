@@ -35,7 +35,7 @@
 
   main {
     height: 100%;
-    padding: 2rem 0rem 0;
+    padding: 2rem 0rem 3.5rem;
 
     background-image: url("/images/pattern-circle.svg");
     background-repeat: no-repeat;

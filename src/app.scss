@@ -49,14 +49,13 @@
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  // min-height: 100vh;
+  height: 100%;
 }
 
 #app {
   text-align: center;
   width: 100%;
-  height: 100vh;
-
   background-image: url("/images/pattern-lines.svg");
   background-size: 70rem 50rem;
   background-repeat: no-repeat;
@@ -69,6 +68,7 @@ body {
 html {
   box-sizing: border-box;
   font-size: 16px;
+  height: 100%;
 }
 
 *,
@@ -123,17 +123,12 @@ input, button, textarea, select {
 body {
   font-size: 1rem;
   font-weight: 400;
-  color: vars.$neutral-900;
+  color: vars.$neutral-0;
   background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-mobile.png);
-  background-size: 20rem 20rem, cover;
+  background-size: 14rem 15rem, cover;
   background-repeat: no-repeat, no-repeat;
-  background-position: bottom -32% left,center;
-
-  // background-image: url(/images/background-mobile.png);
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // color: vars.$neutral-0;
+  background-position: bottom -10% left,center;
+  height: auto;
 
   @include vars.tablet {
     background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-tablet.png);

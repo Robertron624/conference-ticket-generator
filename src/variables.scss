@@ -27,13 +27,13 @@ $text-labels: 2.5rem;
 }
 
 @mixin tablet {
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-width) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: 1024px) {
+  @media (min-width: $desktop-width) {
     @content;
   }
 }
@@ -142,7 +142,7 @@ $text-labels: 2.5rem;
   line-height: $l-height;
 
   & {
-    @include desktop {
+    @include tablet {
       font-size: $size-desktop;
     }
   }
@@ -159,7 +159,7 @@ $text-labels: 2.5rem;
   $m: 0 auto,
   $br: none,
   $radius: 0,
-  $bg: none,
+  $bg: unset,
 ) {
   & {
     width: $w;

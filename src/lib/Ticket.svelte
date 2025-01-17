@@ -63,7 +63,11 @@
         h2 {
           margin-inline: auto;
           max-width: 90%;
-          @include vars.text($size: 2rem, $weight: 700, $align: center, $m: 0 auto 1rem, $l-height: 1);
+          @include vars.tablet {
+            max-width: 40rem;
+            font-size: 3rem;
+          }
+          @include vars.text($size: 2rem, $weight: 700, $align: center, $m: 0 auto 1rem, $l-height: 1, $size-desktop: 3rem);
           .full-name {
             background: vars.$gradient-text;
             -webkit-background-clip: text;
@@ -74,6 +78,9 @@
         }
         p {
           max-width: 90%;
+          @include vars.tablet {
+            max-width: 34rem;
+          }
           @include vars.text($size: 1rem, $align: center, $m: 1.5rem auto 1rem, $l-height: 1, $text-color: vars.$neutral-300);
           strong {
             @include vars.text($text-color: vars.$orange-500);
@@ -81,7 +88,10 @@
         }
       }
       #ticket {
-        @include vars.container($max-w: 90%, $m: 4rem auto 0);
+        @include vars.container($max-w: 100%, $m: 4rem auto 0, $p: 0 .25rem);
+        @include vars.tablet {
+          max-width: 35rem;
+        }
         position: relative;
         .ticket-info {
           display: flex;
@@ -95,14 +105,20 @@
             .logo-date-place {
               img {
                 width: 1.5rem;
+                @include vars.tablet {
+                  width: 2.5rem;
+                }
               }
               .texts {
                 .logo-text {
-                  @include vars.text($l-height: 1, $size: 1.25rem, $weight: 700, $m: 0 0 0, $text-color: vars.$neutral-300);
+                  @include vars.text($l-height: 1, $size: 1.25rem, $weight: 700, $m: 0 0 0);
+                  @include vars.tablet {
+                    font-size: 2rem;
+                  }
                 }
                 @include vars.text($size: 0.65rem, $align: left, $m: 0rem 0, $text-color: vars.$neutral-300);
               }
-              @include vars.flex($direction: row, $align: start, $items-gap: .25rem);
+              @include vars.flex($direction: row, $align: start, $items-gap: 1rem);
             }
             .user {
               @include vars.flex($direction: row, $align: start, $items-gap: 1rem);
