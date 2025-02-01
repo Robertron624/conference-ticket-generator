@@ -98,10 +98,12 @@
           justify-content: space-between;
           position: absolute;
           width: 95%;
-          top: 1.5rem;
-          left: 1rem;
+          top: 0;
+          left: 0;
+          padding: 1.5rem 0 1.5rem 1.5rem;
+          height: 100%;
           .left {
-            @include vars.flex($direction: column, $align: start, $items-gap: 1.5rem);
+            @include vars.flex($direction: column, $align: start,$justify: space-between, $items-gap: 1.5rem);
             .logo-date-place {
               img {
                 width: 1.5rem;
@@ -127,19 +129,19 @@
                 border-radius: .5rem;
               }
               .name-github {
-                @include vars.flex($direction: column, $align: start, $items-gap: .15rem);
+                @include vars.flex($direction: column, $align: start);
 
                 .full-name {
                   @include vars.text($size: 1rem, $weight: 700, $m: 0, $text-color: vars.$neutral-0);
                 }
 
                 .github-username {
-                  @include vars.flex($direction: row, $align: start, $items-gap: .15rem);
+                  @include vars.flex($direction: row, $align: center, $items-gap: .15rem);
                   img {
-                    width: 1rem;
+                    width: 1.5rem;
                   }
                   p {
-                    @include vars.text($size: 0.75rem, $text-color: vars.$neutral-300);
+                    @include vars.text($size: 0.75rem, $text-color: vars.$neutral-300, $size-desktop: .75rem);
                   }
                 }
               }

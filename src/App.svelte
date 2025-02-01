@@ -24,9 +24,7 @@
         Secure your spot at next year's biggest coding conference.
       </p>
     </div>
-    <Form 
-      on:submit={handleFormSubmit}
-    />
+    <Form on:submit={handleFormSubmit} />
   {/if}
 </main>
 
@@ -46,9 +44,15 @@
       margin-top: 1rem;
       .heading {
         & {
-          @include vars.text($size: 1.5rem, $weight: 700, $align: center, $size-desktop: 2.5rem, $text-color: vars.$neutral-0);
+          @include vars.text(
+            $size: 1.5rem,
+            $weight: 700,
+            $align: center,
+            $size-desktop: 2.5rem,
+            $text-color: vars.$neutral-0
+          );
           & {
-            @include vars.container($max-w: 20rem, $max-w-desktop: 40rem);
+            @include vars.container($max-w: 20rem, $max-w-tablet: 40rem);
           }
         }
       }

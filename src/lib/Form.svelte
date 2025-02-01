@@ -213,7 +213,7 @@
 
   #form-container {
     @include vars.container(
-      $max-w: 20rem,
+      $max-w: 40rem,
       $p: 2rem 0 0rem,
       $m: 0 auto 0
     );
@@ -309,8 +309,9 @@
             $br: 1.5px solid vars.$neutral-500,
             $m: 0 0 0.5rem
           );
-
+          
           &.uploaded-image-container {
+            margin-bottom: 2rem;
             img {
                 border-radius: 0.8rem;
             }
