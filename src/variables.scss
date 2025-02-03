@@ -8,6 +8,10 @@ $neutral-500: hsl(245, 15%, 58%);
 $neutral-700: hsl(245, 19%, 35%);
 $neutral-900: hsl(248, 70%, 10%);
 
+// Hover vars
+$neutral-700-hover: hsla(245, 19%, 35%, 0.6);
+$custom-transition: all 0.3s ease-in-out;
+
 // Orange Colors
 $orange-500: hsl(7, 88%, 67%);
 $orange-700: hsl(7, 71%, 60%);
@@ -80,7 +84,7 @@ $text-labels: 2.5rem;
   border: $br;
   border-radius: $radius;
   padding: $p;
-  transition: background-color 0.3s ease;
+  transition: $custom-transition;
   margin: $m;
   width: $w;
 

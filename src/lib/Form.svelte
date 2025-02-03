@@ -77,7 +77,7 @@
   <form on:submit|preventDefault={handleSubmit}>
     <div class="form-groups">
       <div class="form-group">
-        <label for="avatar" class="form-label">Upload Avatar</label>
+        <label for="avatar-input" class="form-label">Upload Avatar</label>
         <div
           id="avatar-dropzone"
           class="dropzone"
@@ -265,6 +265,11 @@
 
       input {
         margin-top: 0.5rem;
+        transition: vars.$custom-transition;
+
+        &:hover {
+          background-color: vars.$neutral-700-hover;
+        }
 
         &.input-error {
           border-color: vars.$orange-700;
@@ -283,7 +288,11 @@
       }
 
       .dropzone {
-        backdrop-filter: blur(1px);
+        transition: vars.$custom-transition;
+        &:hover {
+          background-color: vars.$neutral-700-hover;
+        }
+
         @include vars.flex(column, center, center);
         @include vars.text(
           $size: 1rem,
@@ -330,8 +339,8 @@
       }
 
       @include vars.button(
-        $bg: vars.$orange-700,
-        $bg-hover: vars.$orange-500,
+        $bg: vars.$orange-500,
+        $bg-hover: vars.$orange-700,
         $text-color: vars.$neutral-900,
         $br: 1px solid vars.$neutral-700,
         $radius: $inputs-border-radius,
