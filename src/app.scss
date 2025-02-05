@@ -132,10 +132,13 @@ body {
   @include vars.tablet {
     background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-tablet.png);
     // background-image: url(/images/background-tablet.png)
-  }
+    background-size: 35rem 36rem, cover;
+    background-position: bottom -25% left 0rem, center;
+  } 
 
   @include vars.desktop {
     background-image: url(/images/pattern-squiggly-line-bottom.svg), url(/images/background-desktop.png);
+
     // background-image: url(/images/background-desktop.png)
   }
 }

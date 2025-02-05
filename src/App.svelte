@@ -35,11 +35,18 @@
     height: 100%;
     padding: 2rem 0rem 3.5rem;
 
-    background-image: url("/images/pattern-circle.svg");
-    background-repeat: no-repeat;
-    background-position: -7% -2rem;
-    background-size: 7rem;
+    background-image: url("/images/pattern-circle.svg"), url("/images/pattern-squiggly-line-top.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: -7% -2rem, 87% 2rem;
+    background-size: 7rem, 7rem;
 
+    @include vars.tablet {
+      background-size:  10rem, 20rem, 10rem;
+      background-position: 4% -4rem, 100% 10%, 88% 69%;
+
+      background-image: url("/images/pattern-circle.svg"), url("/images/pattern-squiggly-line-top.svg"), url("/images/pattern-circle.svg");
+      background-repeat: no-repeat, no-repeat, no-repeat;
+    }
     .intro-text {
       margin-top: 1rem;
       .heading {
@@ -48,11 +55,12 @@
             $size: 1.5rem,
             $weight: 700,
             $align: center,
-            $size-desktop: 2.5rem,
-            $text-color: vars.$neutral-0
+            $size-desktop: 3.5rem,
+            $text-color: vars.$neutral-0,
+            $l-height: 1.2
           );
           & {
-            @include vars.container($max-w: 20rem, $max-w-tablet: 40rem);
+            @include vars.container($max-w: 20rem, $max-w-tablet: 50rem);
           }
         }
       }

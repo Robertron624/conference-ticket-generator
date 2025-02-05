@@ -16,12 +16,6 @@
 
   header {
     @include vars.flex(row, center, center);
-
-    background-image: url("/images/pattern-squiggly-line-top.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 7rem;
     height: 4rem;
 
     img {
