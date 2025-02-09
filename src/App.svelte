@@ -33,7 +33,7 @@
 
   main {
     height: 100%;
-    padding: 2rem 0rem 3.5rem;
+    padding: 2rem 0rem 15rem;
 
     background-image: url("/images/pattern-circle.svg"), url("/images/pattern-squiggly-line-top.svg");
     background-repeat: no-repeat, no-repeat;
@@ -43,9 +43,9 @@
     @include vars.tablet {
       background-size:  10rem, 20rem, 10rem;
       background-position: 4% -4rem, 100% 10%, 88% 69%;
-
       background-image: url("/images/pattern-circle.svg"), url("/images/pattern-squiggly-line-top.svg"), url("/images/pattern-circle.svg");
       background-repeat: no-repeat, no-repeat, no-repeat;
+      padding: 2rem 0rem 20rem;
     }
     .intro-text {
       margin-top: 1rem;

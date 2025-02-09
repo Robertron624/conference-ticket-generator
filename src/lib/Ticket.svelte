@@ -14,7 +14,7 @@
       </p>
     </div>
     <div id="ticket">
-      <img src="/images/pattern-ticket.svg" alt="ticket">
+      <img width="100%" src="/images/pattern-ticket.svg" alt="ticket">
       <div class="ticket-info">
         <div class="left">
           <div class="logo-date-place">
@@ -57,7 +57,7 @@
     @use "../variables" as vars;
 
     #ticket-wrapper {
-      @include vars.container($m: 2rem 0 0);
+      @include vars.container($m: 2rem auto 0);
 
       .congrats-text {
         h2 {
@@ -89,9 +89,7 @@
       }
       #ticket {
         @include vars.container($max-w: 100%, $m: 4rem auto 0, $p: 0 .25rem);
-        @include vars.tablet {
-          max-width: 35rem;
-        }
+        max-width: 35rem;
         position: relative;
         .ticket-info {
           display: flex;
@@ -102,6 +100,10 @@
           left: 0;
           padding: 1.5rem 0 1.5rem 1.5rem;
           height: 100%;
+
+          @include vars.tablet {
+            padding: 1.5rem 0 1.5rem 2.5rem;
+          }
           .left {
             @include vars.flex($direction: column, $align: start,$justify: space-between, $items-gap: 1.5rem);
             .logo-date-place {
