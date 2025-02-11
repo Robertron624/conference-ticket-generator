@@ -43,7 +43,7 @@ Ticket page
 ### Links
 
 - [Solution URL](https://github.com/Robertron624/conference-ticket-generator)
-- [Live Site URL](https://conference-ticket-generator-roberto.netlify.app/)
+- [Live Site URL](https://robetron-coference-ticket.netlify.app/)
 
 ## My process
 
